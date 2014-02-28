@@ -1,17 +1,13 @@
 {
   "name": "RedisChat",
+  "repository": "https://github.com/fubuki/RedisChat.git",
   "version": "0.0.1",
   "author": "fubuki",
   "description": "Real-time Web Application with Socket.io, Node.js, and Redis",
   "dependencies" : {
-    "backbone"   :  "1.0.x",
     "express"   :  "3.1.x",
     "redis" :  "0.8.x",
-    "socket.io" :  "0.9.x",
-    "underscore"    :  "1.4.x",
-    "coffee-script"    :  "1.4.0",
-    "moment": "2.0.x",
-    "bootstrap":""
+    "socket.io" :  "0.9.x"
   },
   "license": "MIT",
   "engines": {

@@ -12,13 +12,13 @@
 		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
 		<link rel="shortcut icon" href="/favicon.ico" />
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-		<script src="http://192.168.65.141/socket.io/socket.io.js"></script>
+		<script src="socket.io.js"></script>
 		<script>
-			var socket = io('http://192.168.65.141:80/');
+			var socket = io.connect('http://192.168.65.141:80',{path: '/web/socket.io' });
 			socket.on('news', function(data) {
 				console.log(data);
 				var json = JSON.parse(data);
- 				$("body").append(json.content);
+ 				$("#content").append('<li>'+json.content+'</li>');
 			});
 
 		</script>
@@ -26,6 +26,10 @@
 	<body>
 		<div>
 			<input type="text" id="text_input" />
+			<ul id ="content">
+
+
+			</ul>
 			<footer>
 				<p>
 					&copy; Copyright  by fubuki

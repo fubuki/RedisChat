@@ -19,7 +19,7 @@ if (cluster.isMaster) {
   var redisClient = redis.createClient(port, host);
   var pub = redis.createClient(port, host);
   var sub = redis.createClient(port, host);
-  var io = socketio({});
+  var io = socketio({ path: '/web/socket.io' });
 
   io.adapter(RedisStore({ host: host, port: port }));
 
@@ -43,7 +43,7 @@ if (cluster.isMaster) {
   var redisClient = redis.createClient(port, host);
   var pub = redis.createClient(port, host);
   var sub = redis.createClient(port, host);
-  var io = socketio(3000, {});
+  var io = socketio(3000, {path: '/web/socket.io' });
 
   io.adapter(RedisStore({ host: host, port: port }));
 

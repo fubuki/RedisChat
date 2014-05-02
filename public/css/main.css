@@ -1,0 +1,19 @@
+#main {
+  width: 700px ;
+  margin-left: auto ;
+  margin-right: auto ;
+}
+
+#content {
+  width: 700px ;
+  height: 300px;
+  overflow-y: scroll;
+　overflow-x: hidden;
+}
+
+#text_input {
+  width: 200px ;
+  margin-left: auto ;
+  margin-right: auto ;
+
+}

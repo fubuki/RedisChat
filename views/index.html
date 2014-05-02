@@ -12,7 +12,8 @@
 		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
 		<link rel="shortcut icon" href="/favicon.ico" />
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-		<script src="socket.io.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/main.css">
+		<script src="scripts/socket.io.js"></script>
 		<script>
 			var socket = io.connect('http://192.168.65.141:80',{path: '/web/socket.io' });
 			socket.on('news', function(data) {
@@ -24,19 +25,21 @@
 		</script>
 	</head>
 	<body>
-		<div>
-			<input type="text" id="text_input" />
+		<div id="main">
+
 			<ul id ="content">
 
 
 			</ul>
+
+			<input type="text" id="text_input" />
 			<footer>
 				<p>
 					&copy; Copyright  by fubuki
 				</p>
 			</footer>
 		</div>
-		<script src="jquery.js"></script>
-		<script src="client.js"></script>
+		<script src="scripts/jquery.js"></script>
+		<script src="scripts/client.js"></script>
 	</body>
 </html>

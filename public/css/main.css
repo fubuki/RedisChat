@@ -7,13 +7,25 @@
 #content {
   width: 700px ;
   height: 300px;
+  padding: 0px;
   overflow-y: scroll;
 　overflow-x: hidden;
 }
 
 #text_input {
-  width: 200px ;
-  margin-left: auto ;
-  margin-right: auto ;
+    border-radius: 5px;
+    font-size: 16px;
+    height: 80%;
+    padding: 5px;
+    resize: none;
+    width: 100%;
+}
 
+ul li {
+	list-style-type:none;
+}
+
+.message-area {
+    min-height: 75px;
+    width: 100%;
 }

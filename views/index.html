@@ -14,20 +14,11 @@
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 		<link rel="stylesheet" type="text/css" href="css/main.css">
 		<script src="scripts/socket.io.js"></script>
-		<script>
-			var socket = io.connect('http://192.168.65.141:80',{path: '/web/socket.io' });
-			socket.on('news', function(data) {
-				console.log(data);
-				var json = JSON.parse(data);
- 				$("#content").append('<li>'+json.content+'</li>');
-			});
-
-		</script>
 	</head>
 	<body>
 		<div id="main">
 
-			<ul id ="content">
+			<ul id ="content" data-bind="template: { name: 'history-template', foreach: historyList }" >
 
 
 			</ul>
@@ -41,7 +32,16 @@
 				</p>
 			</footer>
 		</div>
+
 		<script src="scripts/jquery.js"></script>
-		<script src="scripts/client.js"></script>
+		<script src="scripts/knockout-3.1.0.js"></script>
+		<script src="scripts/viewModel.js"></script>
 	</body>
+
+	<script id="history-template" type="text/html">
+		<li data-bind="text:content"></li>
+    </script>
+
+
+
 </html>

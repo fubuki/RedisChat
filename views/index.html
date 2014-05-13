@@ -10,10 +10,10 @@
 		<meta name="author" content="fubuki" />
 		<meta name="viewport" content="width=device-width; initial-scale=1.0" />
 		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
-		<link rel="shortcut icon" href="/favicon.ico" />
-		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+		<link rel="shortcut icon" href="images/favicon.ico" />
+		<link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
 		<link rel="stylesheet" type="text/css" href="css/main.css">
-		<script src="scripts/socket.io.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/offline-theme-chrome.css">
 	</head>
 	<body>
 		<div id="main">
@@ -32,16 +32,19 @@
 				</p>
 			</footer>
 		</div>
-
-		<script src="scripts/jquery.js"></script>
-		<script src="scripts/knockout-3.1.0.js"></script>
-		<script src="scripts/viewModel.js"></script>
 	</body>
 
+	<script src="scripts/offline.min.js"></script>
+	<script  type="text/javascript">
+		Offline.options = {checks: {image: {url: 'images/favicon.ico'}, active: 'image'}}
+	</script>
+
+	<script src="scripts/socket.io.js"></script>
+	<script src="scripts/jquery.js"></script>
+	<script src="scripts/knockout-3.1.0.js"></script>
+	<script src="scripts/viewModel.js"></script>
 	<script id="history-template" type="text/html">
 		<li data-bind="text:content"></li>
     </script>
-
-
 
 </html>

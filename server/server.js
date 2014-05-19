@@ -1,6 +1,8 @@
 var socketio = require('socket.io');
 var RedisStore = require('socket.io-redis');
 var redis = require("redis");
+
+
 var port="6379";
 var host="127.0.0.1"
 var redisClient = redis.createClient(port, host);
@@ -59,17 +61,19 @@ if (cluster.isMaster) {
       console.log(content);
       var msg = {
           content : content
-        };
+      };
+      // store content
+      redisClient.rpush(channel, content);
+
       pub.publish("chatting", JSON.stringify(msg));
     });
 
     client.on('disconnect', function() {
-
       console.log('disconnect');
       client.leave(channel);
     });
-  });
 
+  });
 
 }
 

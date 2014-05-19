@@ -23,10 +23,26 @@
 		socket.on('news', function(data) {
 			var json = JSON.parse(data);
 
-			viewModel.historyList.push(json);
+			viewModel.historyList(json);
 		});
+
+		getHistory();
 		
 	};
+
+	var getHistory = function() {
+		$.ajax({
+			url: "history",
+			type: "GET",
+			dataType: "json",
+			data: {},
+			success: function(history){
+				viewModel.historyList(history);
+        	}
+		});
+
+	}
+
 
 
 	viewModel = (function () {

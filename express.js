@@ -18,7 +18,7 @@ app.get('/', function(req, res) {
 app.get('/history', function(req, res) {
 
 	redisClient.lrange("chatting", 0, 10, function(error, history){
-		if (error) throw error
+
 		res.send(history);
   	});
  

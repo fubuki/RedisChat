@@ -22,22 +22,25 @@
 		socket = io.connect(socketHost,{path: socketPath });
 		socket.on('news', function(data) {
 			var json = JSON.parse(data);
-
-			viewModel.historyList(json);
-		});
-
-		getHistory();
 		
+			viewModel.historyList.push(json.content);
+
+			$("#content").scroll();
+		
+		});
+		getHistory();	
 	};
 
 	var getHistory = function() {
 		$.ajax({
 			url: "history",
 			type: "GET",
-			dataType: "json",
+			datatype: "json",
 			data: {},
 			success: function(history){
-				viewModel.historyList(history);
+         
+             	viewModel.historyList(history);
+            
         	}
 		});
 

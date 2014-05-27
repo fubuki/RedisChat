@@ -25,9 +25,14 @@
 		
 			viewModel.historyList.push(json.content);
 
-			$("#content").scroll();
+			//$("#content").scroll();
+
+			$(".nano").nanoScroller();
+			$(".nano").nanoScroller({ scroll: 'bottom' });
 		
 		});
+
+		$(".nano").nanoScroller();
 		getHistory();	
 	};
 

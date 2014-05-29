@@ -1,7 +1,9 @@
 var socketio = require('socket.io');
 var RedisStore = require('socket.io-redis');
 var redis = require("redis");
+var mqtt = require("mqtt");
 
+var mqttClient = mqtt.createClient(1883, '127.0.0.1');
 
 var port="6379";
 var host="127.0.0.1"
@@ -66,6 +68,7 @@ if (cluster.isMaster) {
       redisClient.rpush(channel, content);
 
       pub.publish("chatting", JSON.stringify(msg));
+      client.publish('chatting', JSON.stringify(msg));
     });
 
     client.on('disconnect', function() {

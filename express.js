@@ -23,3 +23,8 @@ app.get('/history', function(req, res) {
   	});
  
 });
+
+
+app.get('/sse', function(req, res) {
+  res.render('sse');
+});

@@ -68,7 +68,6 @@ if (cluster.isMaster) {
       redisClient.rpush(channel, content);
 
       pub.publish("chatting", JSON.stringify(msg));
-      client.publish('chatting', JSON.stringify(msg));
     });
 
     client.on('disconnect', function() {

@@ -16,7 +16,7 @@
 
 	</body>
   <script>
-    var source = new EventSource('http://192.168.65.141:7878');
+    var source = new EventSource('/event');
     source.onmessage = function(e) {
       console.log(e);
     };

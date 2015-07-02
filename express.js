@@ -14,19 +14,19 @@ app.get('/', function(req, res) {
   res.render('index');
 });
 
-
 app.get('/history', function(req, res) {
-
 	redisClient.lrange("chatting", 0, 10, function(error, history){
-
-		res.send(history);
-  	});
- 
+    res.send(history);
+  });
 });
-
 
 app.get('/sse', function(req, res) {
   res.render('sse');
+});
+
+
+app.get('/react', function(req, res) {
+  res.render('react');
 });
 
 app.all('/event', function(req, res){
@@ -37,7 +37,7 @@ app.all('/event', function(req, res){
   	});
 
 	var id = (new Date()).toLocaleTimeString();
-	var data = 'send message'; 
+	var data = 'send message';
 	res.write('id: ' + id + '\n');
 	res.write("data: " + data + '\n\n');
 })

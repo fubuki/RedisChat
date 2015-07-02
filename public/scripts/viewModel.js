@@ -12,7 +12,7 @@
 		socket,
 		viewModel;
 
-	var socketHost = 'http://192.168.65.141:80';
+	var socketHost = 'ws://192.168.23.128:80';
 
 	var socketPath = '/web/socket.io';
 
@@ -22,18 +22,18 @@
 		socket = io.connect(socketHost,{path: socketPath });
 		socket.on('news', function(data) {
 			var json = JSON.parse(data);
-		
+
 			viewModel.historyList.push(json.content);
 
 			//$("#content").scroll();
 
 			$(".nano").nanoScroller();
 			$(".nano").nanoScroller({ scroll: 'bottom' });
-		
+
 		});
 
 		$(".nano").nanoScroller();
-		getHistory();	
+		getHistory();
 	};
 
 	var getHistory = function() {
@@ -43,9 +43,9 @@
 			datatype: "json",
 			data: {},
 			success: function(history){
-         
+
              	viewModel.historyList(history);
-            
+
         	}
 		});
 
